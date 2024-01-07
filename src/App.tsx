@@ -49,7 +49,7 @@ function App() {
    <main>
     <section>
      <Container>
-      <div className="py-[10px]">
+      <div className="pt-[10px] pb-[100px]">
        <h1 className="text-[40px] font-700 text-center mb-[30px]">To Do</h1>
        <InputField area={area} addTodo={addTodo} areaReset={areaReset} />
        <div className="flex flex-col gap-[5px]">
