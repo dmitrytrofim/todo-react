@@ -1,10 +1,7 @@
-function InputField({ area, addTask }: any) {
+function InputField({ addTask }: any) {
  return (
   <div className="mb-[20px]">
-   <textarea
-    ref={area}
-    className="flex w-full h-[100px] text-[20px] outline-none border-[1px] rounded-[5px] p-[10px] mb-[20px] resize-none"
-   ></textarea>
+   <textarea className="flex w-full h-[100px] text-[20px] outline-none border-[1px] rounded-[5px] p-[10px] mb-[20px] resize-none"></textarea>
    <div className="flex items-center justify-center gap-[30px]">
     <button
      onClick={addTask}
