@@ -8,10 +8,7 @@ function InputField({ area }: any) {
  };
  const dispatch = useDispatch();
  const addTask = () => {
-  if (!area.current!.value.trim()) {
-   area.current!.value = '';
-   return area.current?.focus();
-  }
+  if (!area.current!.value.trim()) return fieldReset();
   dispatch(addTodo(area.current!.value));
   fieldReset();
  };
