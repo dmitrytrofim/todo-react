@@ -1,4 +1,4 @@
-function InputField({ area, addTodo, areaReset }: any) {
+function InputField({ area, addTask }: any) {
  return (
   <div className="mb-[20px]">
    <textarea
@@ -7,17 +7,13 @@ function InputField({ area, addTodo, areaReset }: any) {
    ></textarea>
    <div className="flex items-center justify-center gap-[30px]">
     <button
-     onClick={addTodo}
+     onClick={addTask}
      className="border-[2px] rounded-[5px] p-[5px]"
      type="button"
     >
      Добавить
     </button>
-    <button
-     onClick={areaReset}
-     className="border-[2px] rounded-[5px] p-[5px]"
-     type="button"
-    >
+    <button className="border-[2px] rounded-[5px] p-[5px]" type="button">
      Очистить
     </button>
    </div>
