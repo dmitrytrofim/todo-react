@@ -29,7 +29,7 @@ export function Container({
 }
 
 Container.defaultProps = {
- width: 'max-w-[1220px]',
+ width: 'max-w-[800px]',
  padding: 'px-[10px]',
  margin: '',
 };
