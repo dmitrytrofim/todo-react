@@ -16,7 +16,7 @@ function InputField({ area }: any) {
   fieldReset();
  };
  const delAll = () => {
-  dispatch(deleteAll());
+  dispatch(deleteAll([]));
   area.current?.focus();
  };
  return (
