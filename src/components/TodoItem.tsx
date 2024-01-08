@@ -18,7 +18,10 @@ function TodoItem({ id, text, completed }: any) {
    >
     {text}
    </p>
-   <div onClick={() => dispatch(deleteTodo(id))} className="cursor-pointer">
+   <div
+    onClick={() => dispatch(deleteTodo(id))}
+    className="cursor-pointer select-none"
+   >
     &#10008;
    </div>
   </div>
