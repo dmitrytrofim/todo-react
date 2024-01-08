@@ -9,7 +9,7 @@ function TodoList() {
  const todos = useSelector((state: any) => state.todos.todos);
  const startTasks = localStorage.getItem('todo');
  const addLoad = () => {
-  if (todos.length === 0) dispatch(load([...JSON.parse(startTasks!)]));
+  if (startTasks) dispatch(load([...JSON.parse(startTasks!)]));
  };
 
  useLayoutEffect(() => {
