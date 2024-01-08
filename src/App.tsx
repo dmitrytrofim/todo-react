@@ -19,6 +19,7 @@ function App() {
   window.addEventListener('keydown', saveLocal);
   return () => window.removeEventListener('keydown', saveLocal);
  });
+
  return (
   <Wrapper>
    <main>
