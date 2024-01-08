@@ -34,6 +34,8 @@ function InputField() {
    fieldReset();
   }
  };
+ const styleBlock =
+  'bg-[#9DA1AA] border-[#9DA1AA] text-[#fff] pointer-events-none';
 
  return (
   <div className="mb-[20px]">
@@ -47,9 +49,7 @@ function InputField() {
     <button
      onClick={addTask}
      className={`border-[2px] rounded-[5px] p-[5px] ${
-      !valArea
-       ? 'bg-[#9DA1AA] border-[#9DA1AA] text-[#fff] pointer-events-none'
-       : ''
+      !valArea ? styleBlock : ''
      }`}
      type="button"
     >
@@ -58,9 +58,7 @@ function InputField() {
     <button
      onClick={fieldReset}
      className={`border-[2px] rounded-[5px] p-[5px] ${
-      !valArea
-       ? 'bg-[#9DA1AA] border-[#9DA1AA] text-[#fff] pointer-events-none'
-       : ''
+      !valArea ? styleBlock : ''
      }`}
      type="button"
     >
@@ -69,9 +67,7 @@ function InputField() {
     <button
      onClick={() => delAll()}
      className={`border-[2px] rounded-[5px] p-[5px] ${
-      !todos.length
-       ? 'bg-[#9DA1AA] border-[#9DA1AA] text-[#fff] pointer-events-none'
-       : ''
+      !todos.length ? styleBlock : ''
      }`}
      type="button"
     >
