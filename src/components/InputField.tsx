@@ -27,11 +27,19 @@ function InputField() {
   dispatch(deleteAll([]));
   area.current?.focus();
  };
+ const inputEnter = (e: any) => {
+  if (e.nativeEvent.key === 'Enter') {
+   e.preventDefault();
+   addTask();
+   fieldReset();
+  }
+ };
 
  return (
   <div className="mb-[20px]">
    <textarea
     ref={area}
+    onKeyDown={inputEnter}
     onChange={blockBtns}
     className="flex w-full h-[100px] text-[20px] outline-none border-[1px] rounded-[5px] p-[10px] mb-[20px] resize-none"
    ></textarea>
