@@ -10,6 +10,7 @@ function TodoItem({ id, text, completed }: any) {
     onChange={() => dispatch(completeTodo(id))}
     className="shrink-0 cursor-pointer"
     type="checkbox"
+    checked={completed}
    />
    <p
     className={`grow text-[20px] p-[10px] border-[1px] rounded-[5px] ${
