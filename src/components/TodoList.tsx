@@ -12,7 +12,7 @@ function TodoList() {
  useMemo(() => {
   if (startTasks && todos.length === 0)
    dispatch(loadTodo([...JSON.parse(startTasks!)]));
- }, [startTasks, dispatch, todos.length]);
+ }, []); // eslint-disable-line
 
  return todos.map((todo: any) => <TodoItem key={todo.id} {...todo} />);
 }

@@ -1,3 +1,4 @@
+import BtnsField from './BtnsField';
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo, deleteAll } from '../store/todoSlice';
@@ -7,19 +8,14 @@ function InputField() {
  const todos = useSelector((state: any) => state.todos.todos);
  const area = useRef<HTMLTextAreaElement>(null);
  const [valArea, setValArea] = useState<string>('');
- const addTask = () => {
-  if (!area.current!.value.trim()) return fieldReset();
-  dispatch(addTodo(area.current!.value));
-  setValArea('');
-  fieldReset();
- };
  const fieldReset = () => {
-  area.current!.value = '';
   setValArea('');
   area.current?.focus();
  };
- const blockBtns = () => {
-  setValArea(area.current!.value.trim());
+ const addTask = () => {
+  if (!valArea.trim()) return fieldReset();
+  dispatch(addTodo(valArea));
+  fieldReset();
  };
  const dispatch = useDispatch();
  const delAll = () => {
@@ -34,45 +30,24 @@ function InputField() {
    fieldReset();
   }
  };
- const styleBlock =
-  'bg-[#9DA1AA] border-[#9DA1AA] text-[#fff] pointer-events-none';
 
  return (
   <div className="mb-[20px]">
    <textarea
     ref={area}
+    value={valArea}
     onKeyDown={inputEnter}
-    onChange={blockBtns}
+    onChange={(e) => setValArea(e.target.value)}
     className="flex w-full h-[100px] text-[20px] outline-none border-[1px] rounded-[5px] p-[10px] mb-[20px] resize-none"
    ></textarea>
    <div className="flex items-stretch justify-center gap-[20px] select-none">
-    <button
-     onClick={addTask}
-     className={`border-[2px] rounded-[5px] p-[5px] ${
-      !valArea ? styleBlock : ''
-     }`}
-     type="button"
-    >
-     Добавить
-    </button>
-    <button
-     onClick={fieldReset}
-     className={`border-[2px] rounded-[5px] p-[5px] ${
-      !valArea ? styleBlock : ''
-     }`}
-     type="button"
-    >
-     Очистить
-    </button>
-    <button
-     onClick={() => delAll()}
-     className={`border-[2px] rounded-[5px] p-[5px] ${
-      !todos.length ? styleBlock : ''
-     }`}
-     type="button"
-    >
-     Удалить задачи
-    </button>
+    <BtnsField handler={addTask} value={!valArea.trim()} text={'Добавить'} />
+    <BtnsField handler={fieldReset} value={!valArea} text={'Очистить'} />
+    <BtnsField
+     handler={() => delAll()}
+     value={!todos.length}
+     text={'Удалить задачи'}
+    />
    </div>
   </div>
  );
