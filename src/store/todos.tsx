@@ -17,11 +17,11 @@ const useStore = create(
     }));
    },
    changeField(text: string) {
-    set({ textField: text });
+    set({ textField: text.trimStart() });
    },
    addTodo(id) {
     set((state) => {
-     const text = state.textField;
+     const text = state.textField.trim();
      state.textField = '';
      return {
       list: [{ text, id, complete: false }, ...state.list],
