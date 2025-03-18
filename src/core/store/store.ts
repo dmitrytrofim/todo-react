@@ -9,11 +9,11 @@ const useStore = create<IStore>()(
    addTodo: (text) =>
     set((state) => ({
      todos: [
-      ...state.todos,
       {
        id: crypto.randomUUID(),
        text,
       },
+      ...state.todos,
      ],
     })),
    removeTodo: (id) =>
