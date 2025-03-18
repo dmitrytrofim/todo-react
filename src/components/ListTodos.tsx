@@ -11,7 +11,7 @@ function ListTodos() {
   <ReactSortable
    className="flex flex-col gap-[5px]"
    list={list}
-   setList={sortableTodos}
+   setList={(newState) => sortableTodos(newState)}
    tag="ul"
   >
    {list.map((item) => (
