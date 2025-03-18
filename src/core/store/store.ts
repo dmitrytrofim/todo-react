@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { IStore } from '@/core/types/store';
 
-const useStore = create<IStore>((set) => ({
+const useStore = create<IStore>((set, get) => ({
  todos: [],
  addTodo: (text) =>
   set((state) => ({
@@ -12,6 +12,10 @@ const useStore = create<IStore>((set) => ({
      text,
     },
    ],
+  })),
+ removeTodo: (id) =>
+  set(() => ({
+   todos: get().todos.filter((item) => item.id !== id),
   })),
 }));
 

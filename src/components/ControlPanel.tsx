@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useStore from '@/core/store/store';
 import ButtonPanel from '@/components/ButtonPanel';
 import useAddTodo from '@/core/hooks/useAddTodo';
@@ -12,6 +12,10 @@ function ControlPanel() {
   setTextArea(event.target.value);
  };
  const handlerAddTodo = useAddTodo(addTodo, textArea, setTextArea, field);
+
+ useEffect(() => {
+  field.current?.focus();
+ }, []);
 
  return (
   <form className="flex flex-col gap-[20px] mb-[20px]">

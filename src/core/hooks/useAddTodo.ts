@@ -9,6 +9,7 @@ function useAddTodo(
  ) => {
   const enterEvent = event as React.KeyboardEvent;
   if (enterEvent.key === 'Enter' || event.type === 'click') {
+   if (enterEvent.shiftKey === true) return;
    event.preventDefault();
    field.current!.focus();
    if (textArea.trim() === '') {

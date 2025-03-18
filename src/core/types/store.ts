@@ -6,6 +6,7 @@ export interface ITodo {
 export interface IStore {
  todos: Array<ITodo>;
  addTodo: (text: string) => void;
+ removeTodo: (id: string) => void;
 }
 
 export interface IButtonPanel {
