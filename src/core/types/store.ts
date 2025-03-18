@@ -7,6 +7,7 @@ export interface IStore {
  todos: Array<ITodo>;
  addTodo: (text: string) => void;
  removeTodo: (id: string) => void;
+ sortableTodos: (current: ITodo[]) => void;
 }
 
 export interface IButtonPanel {

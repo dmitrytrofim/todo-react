@@ -1,12 +1,19 @@
 import ItemTodo from '@/components/ItemTodo';
 import useStore from '@/core/store/store';
+import { ReactSortable } from 'react-sortablejs';
 
 function ListTodos() {
  const list = useStore((state) => state.todos);
  const removeTodo = useStore((state) => state.removeTodo);
+ const sortableTodos = useStore((state) => state.sortableTodos);
 
  return (
-  <ul className="flex flex-col gap-[5px]">
+  <ReactSortable
+   className="flex flex-col gap-[5px]"
+   list={list}
+   setList={sortableTodos}
+   tag="ul"
+  >
    {list.map((item) => (
     <ItemTodo
      key={item.id}
@@ -15,7 +22,7 @@ function ListTodos() {
      removeTodo={removeTodo}
     />
    ))}
-  </ul>
+  </ReactSortable>
  );
 }
 

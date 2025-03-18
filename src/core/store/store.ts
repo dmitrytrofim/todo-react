@@ -20,6 +20,10 @@ const useStore = create<IStore>()(
     set(() => ({
      todos: get().todos.filter((item) => item.id !== id),
     })),
+   sortableTodos: (current) =>
+    set(() => ({
+     todos: current,
+    })),
   }),
   { name: 'Todos' }
  )

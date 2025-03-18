@@ -11,7 +11,7 @@ function ItemTodo({
   <li className="flex items-center gap-[10px] rounded-[5px] border px-[5px]">
    <button className="h-[22px] cursor-pointer">&#10004;</button>
    <input
-    className="w-full h-full py-[5px]"
+    className="w-full h-full py-[5px] cursor-grab"
     type="text"
     readOnly
     value={text}
