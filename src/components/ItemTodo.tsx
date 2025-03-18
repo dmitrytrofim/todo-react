@@ -10,7 +10,7 @@ function ItemTodo({
 }: ITodo & IFuncTodo) {
  return (
   <li className="flex items-center gap-[10px] rounded-[5px] border px-[5px]">
-   <BtnItem id={id} handler={completeTodo!}>
+   <BtnItem id={id} handler={completeTodo}>
     &#10004;
    </BtnItem>
    <input
@@ -20,7 +20,7 @@ function ItemTodo({
     value={text}
    />
    <span>{completed ? 'true' : 'false'}</span>
-   <BtnItem id={id} handler={removeTodo!}>
+   <BtnItem id={id} handler={removeTodo}>
     &#10008;
    </BtnItem>
   </li>
