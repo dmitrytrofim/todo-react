@@ -1,8 +1,9 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { IStore } from '@/core/types/store';
+import { IFuncTodo, IStore } from '@/core/types/store';
+import { completeTodo } from '@/core/store/actions/completeTodo';
 
-const useStore = create<IStore>()(
+const useStore = create<IStore & IFuncTodo>()(
  persist(
   (set, get) => ({
    todos: [],
@@ -12,6 +13,7 @@ const useStore = create<IStore>()(
       {
        id: crypto.randomUUID(),
        text,
+       completed: false,
       },
       ...state.todos,
      ],
@@ -20,6 +22,7 @@ const useStore = create<IStore>()(
     set(() => ({
      todos: get().todos.filter((item) => item.id !== id),
     })),
+   completeTodo: completeTodo(set, get),
    sortableTodos: (current) =>
     set(() => ({
      todos: current,

@@ -5,6 +5,7 @@ import { ReactSortable } from 'react-sortablejs';
 function ListTodos() {
  const list = useStore((state) => state.todos);
  const removeTodo = useStore((state) => state.removeTodo);
+ const completeTodo = useStore((state) => state.completeTodo);
  const sortableTodos = useStore((state) => state.sortableTodos);
 
  return (
@@ -19,7 +20,9 @@ function ListTodos() {
      key={item.id}
      text={item.text}
      id={item.id}
+     completed={item.completed}
      removeTodo={removeTodo}
+     completeTodo={completeTodo}
     />
    ))}
   </ReactSortable>
