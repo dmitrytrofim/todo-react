@@ -1,5 +1,5 @@
 import BtnItem from '@/components/BtnItem';
-import { IFuncTodo, ITodo } from '@/core/types/store';
+import { IFuncsTodo, ITodo } from '@/core/types/store';
 
 function ItemTodo({
  text,
@@ -7,19 +7,24 @@ function ItemTodo({
  completed,
  removeTodo,
  completeTodo,
-}: ITodo & IFuncTodo) {
+}: ITodo & IFuncsTodo) {
  return (
-  <li className="flex items-center gap-[10px] rounded-[5px] border px-[5px]">
+  <li
+   className={`flex items-center gap-[10px] rounded-[5px] border px-[5px] ${
+    completed && 'bg-[darkgray] text-[white] border-[darkgray]'
+   }`}
+  >
    <BtnItem id={id} handler={completeTodo}>
     &#10004;
    </BtnItem>
-   <input
-    className="w-full h-full py-[5px] cursor-grab"
-    type="text"
-    readOnly
-    value={text}
-   />
-   <span>{completed ? 'true' : 'false'}</span>
+   <p
+    onBlur={(e) => console.log(e)}
+    className="w-full resize-none py-[5px] focus-visible:outline-none cursor-grab"
+    contentEditable={false}
+    suppressContentEditableWarning={true}
+   >
+    {text}
+   </p>
    <BtnItem id={id} handler={removeTodo}>
     &#10008;
    </BtnItem>

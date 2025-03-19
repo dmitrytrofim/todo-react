@@ -1,12 +1,9 @@
 import { IButtonPanel } from '@/core/types/store';
 
-function ButtonPanel({ handlerAddTodo }: IButtonPanel) {
+function ButtonPanel({ children, handler }: IButtonPanel) {
  return (
-  <button
-   onClick={handlerAddTodo}
-   className="border cursor-pointer p-[5px_10px]"
-  >
-   Добавить
+  <button onClick={handler} className="border cursor-pointer p-[5px_10px]">
+   {children}
   </button>
  );
 }
