@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import useStore from '@/core/store/store';
 import ButtonPanel from '@/components/ButtonPanel';
 import useAddTodo from '@/core/hooks/useAddTodo';
+import TextAreaPanel from '@/components/TextAreaPanel';
 
 function ControlPanel() {
  const field = useRef<HTMLTextAreaElement>(null);
@@ -26,14 +27,12 @@ function ControlPanel() {
 
  return (
   <form className="flex flex-col gap-[20px] mb-[20px]">
-   <textarea
-    onInput={inputText}
-    onKeyDown={handlerAddTodo}
-    rows={2}
-    ref={field}
-    value={textArea}
-    className="w-full border rounded-[10px] p-[5px_10px]"
-   ></textarea>
+   <TextAreaPanel
+    inputText={inputText}
+    handlerAddTodo={handlerAddTodo}
+    field={field}
+    textArea={textArea}
+   />
    <div className="flex justify-center gap-[10px]">
     <ButtonPanel handler={handlerAddTodo}>Добавить</ButtonPanel>
     <ButtonPanel handler={clearTodos}>Очистить все</ButtonPanel>
