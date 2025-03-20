@@ -17,8 +17,14 @@ function ControlPanel() {
  const handlerAddTodo = useAddTodo(addTodo, textArea, setTextArea, field);
  const clearTodos = (event: React.MouseEvent<HTMLButtonElement>) => {
   event.preventDefault();
+  field.current?.focus();
   if (list.length === 0) return;
   confirm('Удалить все задачи?') && clearAllTodos();
+ };
+ const handleClearField = (event: React.MouseEvent<HTMLButtonElement>) => {
+  event.preventDefault();
+  setTextArea('');
+  field.current?.focus();
  };
 
  useEffect(() => {
@@ -34,8 +40,15 @@ function ControlPanel() {
     textArea={textArea}
    />
    <div className="flex justify-center gap-[10px]">
-    <ButtonPanel handler={handlerAddTodo}>Добавить</ButtonPanel>
-    <ButtonPanel handler={clearTodos}>Очистить все</ButtonPanel>
+    <ButtonPanel handler={handlerAddTodo} block={textArea.trim().length === 0}>
+     Добавить
+    </ButtonPanel>
+    <ButtonPanel handler={handleClearField} block={textArea.length === 0}>
+     Очистить
+    </ButtonPanel>
+    <ButtonPanel handler={clearTodos} block={list.length === 0}>
+     Удалить задачи
+    </ButtonPanel>
    </div>
   </form>
  );

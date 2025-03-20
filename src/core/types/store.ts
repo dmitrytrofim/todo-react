@@ -21,4 +21,5 @@ export interface IButtonPanel {
  handler?: (
   event: React.MouseEvent<HTMLButtonElement> & React.KeyboardEvent
  ) => void;
+ block?: boolean;
 }
